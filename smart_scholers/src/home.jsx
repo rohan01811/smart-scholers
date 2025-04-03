@@ -5,7 +5,6 @@ import "./home.css"
 function Home() {
     return (
         <>
-            <Navbar />
             <div className="headings">
                 <div className="heading">
                     Crack NEET with AI Based Solutions🚀
@@ -17,21 +16,28 @@ function Home() {
                 <div className="cards">
                         <div className="card">
                             <div>Study Material</div>
-                            <button>Go</button>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident impedit repellendus rem aut maxime magni ad cupiditate porro dolores obcaecati.</p>
+                            <div className="btn">
+                                <button>Click Here</button>
+                            </div>
+                            
                         </div>
                         <div className="card">
                             <div>Mind Maps</div>
-                            <button>Go</button>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident impedit repellendus rem aut maxime magni ad cupiditate porro dolores obcaecati.</p>
+
+                            <div className="btn">
+                                <button>Click Here</button>
+                            </div>
                         </div>
 
                         <div className="card">
                             <div>To Do List</div>
-                            <button>Go</button>
-                        </div>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident impedit repellendus rem aut maxime magni ad cupiditate porro dolores obcaecati.</p>
 
-                        <div className="card">
-                            <div>Document QnA</div>
-                            <button>Go</button>
+                            <div className="btn">
+                                <button>Click Here</button>
+                            </div>
                         </div>
                     </div>
 
