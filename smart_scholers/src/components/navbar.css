@@ -1,0 +1,38 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+li{
+    list-style: none;
+}
+
+.navbar{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;    
+    width: 100vw;
+    background-color: #FCFAF3;
+}
+
+.log_buttons{
+    display: flex;
+    gap: 20px;
+    padding-right: 50px;
+    padding-top: 30px;
+    padding-bottom: 10px;
+
+}
+
+.name{
+    font-size: xx-large;
+    font-weight: bold;
+    padding-left: 50px;
+    color: #002752;
+}
+
+
+ul{
+    display: flex;
+}
+

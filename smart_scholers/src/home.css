@@ -1,0 +1,57 @@
+.headings{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100vw;
+    background-color:#FCFAF3 ;
+    flex-wrap: wrap;
+    padding: 20px; /* Added padding to prevent overflow */
+    box-sizing: border-box; 
+}
+
+img{
+    width: 550px;
+    height: 450px;
+    padding-right: 5vw;
+    max-width: 100%;
+    overflow: visible;
+}
+
+.heading{
+    color: #002752;
+    font-size:xxx-large;
+    font-weight: bolder;
+    width: 45vw;
+    padding-left: 50px;
+}
+
+
+.cards{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 100vw;
+    padding-top: 30px;
+}
+
+.card{
+    width: 18vw;
+    height: 28vh;
+    background: linear-gradient(135deg, #f2ebe2, #d1d9e6);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #002752;
+    font-weight: 700;
+    font-size: larger;
+    gap: 40px;
+}
+
+.card:hover{
+    background: linear-gradient(135deg, #aac1db, #002752);
+   box-shadow: 0px 4px 10px rgba(0, 39, 82, 0.3); 
+   transition: background 0.3s ease, box-shadow 0.3s ease; 
+}
