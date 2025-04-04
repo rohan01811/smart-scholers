@@ -1,5 +1,6 @@
 import React from "react";
 import "./navbar.css"
+import { NavLink } from "react-router-dom";
 
 function Navbar() {
 
@@ -10,7 +11,7 @@ function Navbar() {
             </div>
 
             <div className="log_buttons">
-                <button>LogIn</button>
+                <NavLink to={"/login"}><button>LogIn</button></NavLink>
                 <button>SignUp</button>
             </div>
             
