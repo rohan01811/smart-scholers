@@ -4,6 +4,20 @@ import "./home.css"
 import { NavLink } from "react-router-dom";
 
 function Home() {
+    function handleChatbotClick(){
+        alert("Chatbot is clicked!!")
+    }
+
+    function handelChatbotHover(){
+        const notify = document.getElementById("chatbot_notify")
+        notify.style.display = "inline"
+    }
+
+    function handelChatbotLeave(){
+        const notify = document.getElementById("chatbot_notify")
+        notify.style.display = "none"
+    }
+
     return (
         <>
             <div className="headings">
@@ -11,7 +25,11 @@ function Home() {
                     Crack NEET with AI Based Solutions🚀
                 </div>
                 <div className="head_image">
-                    <img src="src\assets\homepage_background.png" alt="" />
+                    <img id="main_img" src="src\assets\homepage_background.png" alt="" />
+                </div>
+                <div onClick = {handleChatbotClick} onMouseEnter  = {handelChatbotHover} onMouseLeave={handelChatbotLeave} className="chatbot">
+                    <img id = "chatbot_notify" src="src\assets\helpful-tips.png" alt="" />
+                    <img id = "chatbot_img" src="src\assets\robot.png" alt="" />
                 </div>
 
                 <div className="cards">
