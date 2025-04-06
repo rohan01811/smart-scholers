@@ -80,10 +80,14 @@
     height: 90%;
 }
 
-.inputs{
+.inputs_home{
+    display: flex;
     position: fixed;
-    top:81%;
-    right: 10px;
+    gap: 5px;
+    top:83%;
+    right: 40px;
+    justify-content: center;
+    align-items: center;
 }
 
 #send{

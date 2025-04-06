@@ -87,7 +87,7 @@ function Home() {
                             <ReactMarkdown>{msg.text}</ReactMarkdown>
                           </span>))}
                     </div>
-                    <div className="inputs">
+                    <div className="inputs_home">
                         <img id = "upload" src="src\assets\add.png" alt="" />
                         <input id = "type_message" type="text" placeholder = "Enter your Message"  />
                         <img id = "send" src="src\assets\send.png" alt="" onClick={handleSendMessage} />
