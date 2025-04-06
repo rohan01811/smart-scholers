@@ -1,22 +1,71 @@
-import React from "react";
-import Navbar from "./components/navbar";
+import React, { useEffect, useState } from "react";
 import "./home.css"
 import { NavLink } from "react-router-dom";
+import ReactMarkdown from 'react-markdown';
 
 function Home() {
+    const [chatbotWindow,setChatbotWindow] = useState(false);
+    const [messages,setMessages] = useState([{sender : "bot" , text : "Hi! How can I help you today?"}])
+
+    useEffect(()=>{
+        const cbWindow = document.getElementById("chatbot_window")
+
+        if(chatbotWindow == true){
+            cbWindow.style.display = "inline"
+        }
+        else{
+            cbWindow.style.display = "none"
+        }
+    },[chatbotWindow])
+
+    
+
     function handleChatbotClick(){
-        alert("Chatbot is clicked!!")
+        if(chatbotWindow == false){
+            setChatbotWindow(true)
+        }else{
+            setChatbotWindow(false)
+        }
     }
 
     function handelChatbotHover(){
         const notify = document.getElementById("chatbot_notify")
-        notify.style.display = "inline"
+        if(chatbotWindow == false){
+            notify.style.display = "inline"
+
+        }
     }
 
     function handelChatbotLeave(){
         const notify = document.getElementById("chatbot_notify")
         notify.style.display = "none"
     }
+
+    async function handleSendMessage(){
+        
+
+        const message = document.getElementById("type_message").value
+
+        const newMessages1 = [...messages , {sender : "user" ,text :message}]
+        setMessages(newMessages1)
+
+        document.getElementById("type_message").value = ""
+
+        const response = await fetch("http://127.0.0.1:8000/chatbot",{
+            method : "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                question: message
+            }),
+        })
+
+        const answer = await response.json()
+        const newMessages2 = [...newMessages1 , {sender : "bot" ,text :answer}]
+        setMessages(newMessages2)
+    }
+    
 
     return (
         <>
@@ -26,6 +75,23 @@ function Home() {
                 </div>
                 <div className="head_image">
                     <img id="main_img" src="src\assets\homepage_background.png" alt="" />
+                </div>
+
+                <div className="chatbot_window" id = "chatbot_window">
+                    <div className="messages">
+                        {messages.map((msg,index)=>(
+                            <span
+                            key={index}
+                            className={`${msg.sender === 'user' ? 'user' : 'bot'}`}
+                          >
+                            <ReactMarkdown>{msg.text}</ReactMarkdown>
+                          </span>))}
+                    </div>
+                    <div className="inputs">
+                        <img id = "upload" src="src\assets\add.png" alt="" />
+                        <input id = "type_message" type="text" placeholder = "Enter your Message"  />
+                        <img id = "send" src="src\assets\send.png" alt="" onClick={handleSendMessage} />
+                    </div>
                 </div>
                 <div onClick = {handleChatbotClick} onMouseEnter  = {handelChatbotHover} onMouseLeave={handelChatbotLeave} className="chatbot">
                     <img id = "chatbot_notify" src="src\assets\helpful-tips.png" alt="" />

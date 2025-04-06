@@ -12,7 +12,7 @@
 #main_img{
     width: 550px;
     height: 450px;
-    padding-right: 5vw;
+    
     max-width: 100%;
     max-height: 100%;
     overflow: visible;
@@ -31,16 +31,64 @@
 
 
 #chatbot_notify{
-    z-index: 999;
+    z-index: 1;
     width: 70px;
     height: 50px;
     position:fixed;
     right: 50px;
     bottom: 60px;  
     display:none;
+
 }
 
+.chatbot_window{
+    height: 450px;
+    width: 300px;
+    position: fixed;
+    color: #aac1db;
+    border: 2px solid rgb(136, 172, 235);
+    right: 20px;
+    bottom: 70px;
+    z-index: 10;
+    background-color: #adc3db;
+    border-radius: 10px;
+}
 
+#upload{
+    width: 20px;
+}
+#type_message{
+    background-color: #aac1db;
+    border: none;
+    color: gray;
+
+}
+.user{
+    color: #002752;
+    padding: 5px;
+}
+
+.bot{
+    color: #002752;
+    padding: 5px;
+}
+
+.messages{
+    display: flex;
+    flex-direction: column;
+    overflow-y:scroll;
+    height: 90%;
+}
+
+.inputs{
+    position: fixed;
+    top:81%;
+    right: 10px;
+}
+
+#send{
+    width: 20px;
+}
 
 
 .heading{

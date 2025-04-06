@@ -9,7 +9,8 @@ from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.vectorstores import Chroma
 import json
 from langchain.chains import RetrievalQA
-from langchain.chat_models import ChatOpenAI
+from langchain_groq import ChatGroq
+
 from graphviz import Source
 from IPython.display import Image
 from fastapi.middleware.cors import CORSMiddleware
@@ -26,6 +27,12 @@ import shutil
 from fastapi.staticfiles import StaticFiles
 
 from load_dotenv import load_dotenv
+from langchain.chat_models import ChatOpenAI
+from langchain.chains import ConversationChain
+from langchain.memory import ConversationBufferMemory
+import os
+from pydantic import BaseModel
+
 
 load_dotenv()
 
@@ -42,6 +49,7 @@ app.add_middleware(
     allow_methods=["*"],  
     allow_headers=["*"], 
 )
+
 
 os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
 
@@ -166,9 +174,25 @@ async def generateMindmap(pdf : UploadFile = File(...)):
     return f"http://localhost:8000/{filePath}"
 
     
+##chatbot
 
-    
-    
+memory = ConversationBufferMemory()
+
+conversation = ConversationChain(
+    llm=model,
+    memory=memory,
+)
+
+
+class QuestionRequest(BaseModel):
+    question: str
+
+@app.post("/chatbot")
+def askQuestion(qs : QuestionRequest):
+    user_input = qs.question
+    response = conversation.predict(input=user_input)
+    return response
+
 
 
 
