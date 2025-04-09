@@ -103,7 +103,7 @@ function Home() {
                             <div>Study Material</div>
                             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident impedit repellendus rem aut maxime magni ad cupiditate porro dolores obcaecati.</p>
                             <div className="btn">
-                                <button>Click Here</button>
+                                 <NavLink to={"/studyMaterial"}><button>Click Here</button></NavLink>
                             </div>
                             
                         </div>

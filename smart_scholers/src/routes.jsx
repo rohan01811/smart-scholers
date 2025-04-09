@@ -3,6 +3,7 @@ import { BrowserRouter as Router,Routes, Route } from "react-router-dom"
 import Home from "./home";
 import Navbar from "./components/navbar";
 import LoginPage from "./login";
+import StudyMaterial from "./studyMaterial";
 
 import Mindmaps from "./mindmap";
 
@@ -15,7 +16,7 @@ function RouterPage(){
                 <Route path = "/" element = {<><Navbar/> <Home/></>} />
                 <Route path = "/login" element = {<><LoginPage/></>}/>
                 <Route path = "/mindmap" element = {<> <Mindmaps/></>} />
-
+                <Route path = "/studyMaterial" element = {<> <StudyMaterial/></>} />
             </Routes>
         </Router>
     )
