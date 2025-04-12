@@ -178,6 +178,14 @@ async def generateMindmap(pdf : UploadFile = File(...)):
 
 memory = ConversationBufferMemory()
 
+initial_prompt = """You are a helpful and friendly chatbot for NEET students.
+  *Make sure thet you answer only NEET related questions and for others convince users to focus on NEET related questions*
+  *Answer in pointwise or paragraph format only, Do not add any tables*
+
+"""
+memory.chat_memory.add_user_message(initial_prompt)
+
+
 conversation = ConversationChain(
     llm=model,
     memory=memory,

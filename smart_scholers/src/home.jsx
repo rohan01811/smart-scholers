@@ -80,12 +80,13 @@ function Home() {
                 <div className="chatbot_window" id = "chatbot_window">
                     <div className="messages">
                         {messages.map((msg,index)=>(
-                            <span
+                            <div
                             key={index}
                             className={`${msg.sender === 'user' ? 'user' : 'bot'}`}
                           >
-                            <ReactMarkdown>{msg.text}</ReactMarkdown>
-                          </span>))}
+                          <span><ReactMarkdown>{msg.text}</ReactMarkdown></span>
+                            
+                          </div>))}
                     </div>
                     <div className="inputs_home">
                         <img id = "upload" src="src\assets\add.png" alt="" />
