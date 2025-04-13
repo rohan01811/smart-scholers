@@ -5,7 +5,7 @@ import './todo.css'
 import Navbar from './components/navbar'
 import {v4 as uuidv4} from 'uuid';
 
-function todoApp() {
+function TodoApp() {
   const [iptodo, setiptodo] = useState(" ")
   const [iptodos, setiptodos] = useState([])
 
@@ -103,4 +103,4 @@ function todoApp() {
   )
 }
 
-export default todoApp;
+export default TodoApp;
