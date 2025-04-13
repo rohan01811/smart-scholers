@@ -5,7 +5,7 @@ import signupImage from './assets/download.png';
 //import Navbar2 from "./components/navbar_signup";
 
 
-export default function SignUpPage() {
+ function SignUpPage() {
   const [email, setEmail] = useState('');
   const [isValidEmail, setIsValidEmail] = useState(false);
   
@@ -233,3 +233,5 @@ export default function SignUpPage() {
     </div>
   );
 }
+
+export default SignUpPage;

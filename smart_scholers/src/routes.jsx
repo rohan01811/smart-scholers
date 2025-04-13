@@ -6,6 +6,8 @@ import LoginPage from "./login";
 import StudyMaterial from "./studyMaterial";
 
 import Mindmaps from "./mindmap";
+import SignUpPage from "./signup";
+import todoApp from "./todoApp";
 
 
 
@@ -15,8 +17,12 @@ function RouterPage(){
             <Routes>
                 <Route path = "/" element = {<><Navbar/> <Home/></>} />
                 <Route path = "/login" element = {<><LoginPage/></>}/>
+                <Route path = "/signup" element = {<><SignUpPage/></>}/>
+
                 <Route path = "/mindmap" element = {<> <Mindmaps/></>} />
                 <Route path = "/studyMaterial" element = {<> <StudyMaterial/></>} />
+                <Route path = "/todo" element = {<> <todoApp/></>} />
+
             </Routes>
         </Router>
     )

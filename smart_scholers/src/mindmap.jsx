@@ -46,4 +46,4 @@ function Mindmaps() {
     )
 }
 
-export default Mindmaps
+export default Mindmaps;
