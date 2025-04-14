@@ -1,19 +1,62 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { useNavigate, NavLink, } from 'react-router-dom';
 import './signup.css';
 import signupImage from './assets/download.png';
+
 
 function SignUpPage() {
   const [email, setEmail] = useState('');
   const [isValidEmail, setIsValidEmail] = useState(false);
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
+  const navigate = useNavigate();
+
 
   const validateEmail = (value) => {
     const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     setIsValidEmail(pattern.test(value));
     setEmail(value);
   };
+
+  const submitinfo =async () => {
+    if (!isValidEmail) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+    if (name === '' || password === '') {
+      alert('Please fill in all fields.');
+      return;
+    }
+    // Handle signup logic here
+   
+    try {
+      const response = await fetch('http://localhost:3000/api/signup', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ name, email, password }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert('Signup successful!');
+        // Redirect or clear form if needed
+        setName('');
+        setEmail('');
+        setPassword('');
+       
+      } else {
+        alert(data.message || 'Signup failed.');
+      }
+
+      navigate('/'); // Redirect to login page after successful signup
+    } catch (error) {
+      console.error('Signup error:', error);
+      alert('Something went wrong. Try again.');
+    }
+  };
+
+  
 
   return (
     <div className="signup-container">
@@ -26,6 +69,7 @@ function SignUpPage() {
             <div className="name-input-container">
               <input
                 type="text"
+                name="name"
                 placeholder="Name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -38,6 +82,7 @@ function SignUpPage() {
             <div className="input-container">
               <input
                 type="email"
+                name='email'
                 placeholder="Email"
                 value={email}
                 onChange={(e) => validateEmail(e.target.value)}
@@ -66,6 +111,7 @@ function SignUpPage() {
           <div className="form-group">
             <input
               type="password"
+              name='password'
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -73,7 +119,7 @@ function SignUpPage() {
             />
           </div>
 
-          <button className="signup-button">Sign Up</button>
+          <button className="signup-button" onClick={submitinfo}>Sign Up</button>
 
           <div className="login-text">
             Already have an account? <NavLink to="/login"><div>LogIn</div></NavLink>

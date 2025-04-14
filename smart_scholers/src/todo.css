@@ -130,3 +130,14 @@ h2{
 .not\ done {
   color: black;
 }
+
+.btn1{
+  background-color: violet;
+  height: 30px;
+  width: 80px;
+  border-radius: 20px;
+  text-align: center;
+  position: relative;
+  left: 50%;
+  cursor: pointer;
+}
