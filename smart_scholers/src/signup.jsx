@@ -59,14 +59,14 @@ function SignUpPage() {
   
 
   return (
-    <div className="signup-container">
-      <img src={signupImage} alt="Signup illustration" className="signup-img" />
-      <div className="signup-card">
-        <h1 className="signup-heading">Sign up</h1>
+    <div className="signup-container5">
+      <img src={signupImage} alt="Signup illustration" className="signup-img5" />
+      <div className="signup-card5">
+        <h1 className="signup-heading5">Sign up</h1>
 
         <div>
-          <div className="form-group">
-            <div className="name-input-container">
+          <div className="form-group5">
+            <div className="name-input-container5">
               <input
                 type="text"
                 name="name"
@@ -78,18 +78,18 @@ function SignUpPage() {
             </div>
           </div>
 
-          <div className="form-group">
-            <div className="input-container">
+          <div className="form-group5">
+            <div className="input-container5">
               <input
                 type="email"
                 name='email'
                 placeholder="Email"
                 value={email}
                 onChange={(e) => validateEmail(e.target.value)}
-                className="normal-input"
+                className="normal-input5"
               />
               {email && (
-                <div className="icon-container">
+                <div className="icon-container5">
                   {isValidEmail ? (
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                       strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ color: '#10b981' }}>
@@ -108,31 +108,31 @@ function SignUpPage() {
             </div>
           </div>
 
-          <div className="form-group">
+          <div className="form-group5">
             <input
               type="password"
               name='password'
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="normal-input"
+              className="normal-input5"
             />
           </div>
 
-          <button className="signup-button" onClick={submitinfo}>Sign Up</button>
+          <button className="signup-button5" onClick={submitinfo}>Sign Up</button>
 
-          <div className="login-text">
+          <div className="login-text5">
             Already have an account? <NavLink to="/login"><div>LogIn</div></NavLink>
           </div>
 
-          <div className="divider">
-            <div className="divider-line"></div>
-            <div className="divider-text">or</div>
-            <div className="divider-line"></div>
+          <div className="divider5">
+            <div className="divider-line5"></div>
+            <div className="divider-text5">or</div>
+            <div className="divider-line5"></div>
           </div>
 
-          <button className="google-button">
-            <svg className="google-icon" viewBox="0 0 24 24">
+          <button className="google-button5">
+            <svg className="google-icon5" viewBox="0 0 24 24">
               <path fill="#4285F4" d="M22.56 12.25..."></path>
               <path fill="#34A853" d="M12 23..."></path>
               <path fill="#FBBC05" d="M5.84 14.09..."></path>

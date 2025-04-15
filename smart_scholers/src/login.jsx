@@ -49,20 +49,20 @@ function LoginPage() {
   };
 
   return (
-    <div className="login-container">
+    <div className="login-container3">
       <img
         src="https://static.uacdn.net/production/_next/static/images/home-illustration.svg?q=75&auto=format%2Ccompress&w=1200"
         alt=""
-        className="img1"
+        className="img13"
       />
 
-      <div className="login-form-wrapper">
+      <div className="login-form-wrapper3">
         <h2>Login</h2>
 
-        <form onSubmit={handleSubmit} className="login-form">
+        <form onSubmit={handleSubmit} className="login-form3">
           {error && <div className="error-message">{error}</div>}
 
-          <div className="form-group">
+          <div className="form-group3">
             <label htmlFor="email">Email</label>
             <input
               type="email"
@@ -73,7 +73,7 @@ function LoginPage() {
             />
           </div>
 
-          <div className="form-group">
+          <div className="form-group3">
             <label htmlFor="password">Password</label>
             <input
               type="password"
@@ -84,16 +84,16 @@ function LoginPage() {
             />
           </div>
 
-          <div className="checkbox">
+          <div className="checkbox3">
             <input type="checkbox" id="remember-c" />
             <label htmlFor="remember">Remember me</label>
           </div>
 
-          <button type="submit" className="login-button">
+          <button type="submit" className="login-button3">
             Login
           </button>
 
-          <div className="additional-options">
+          <div className="additional-options3">
             <a href="#forgot-password">Forgot Password?</a>
             <NavLink to="/signup"><div>SignUp</div></NavLink>
           </div>

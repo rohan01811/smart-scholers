@@ -69,16 +69,16 @@ function Home() {
 
     return (
         <>
-            <div className="headings">
-                <div className="heading">
+            <div className="headings1">
+                <div className="heading1">
                     Crack NEET with AI Based Solutions🚀
                 </div>
-                <div className="head_image">
+                <div className="head_image1">
                     <img id="main_img" src="src\assets\homepage_background.png" alt="" />
                 </div>
 
-                <div className="chatbot_window" id = "chatbot_window">
-                    <div className="messages">
+                <div className="chatbot_window1" id = "chatbot_window">
+                    <div className="messages1">
                         {messages.map((msg,index)=>(
                             <div
                             key={index}
@@ -88,7 +88,7 @@ function Home() {
                             
                           </div>))}
                     </div>
-                    <div className="inputs_home">
+                    <div className="inputs_home1">
                         <img id = "upload" src="src\assets\add.png" alt="" />
                         <input id = "type_message" type="text" placeholder = "Enter your Message"  />
                         <img id = "send" src="src\assets\send.png" alt="" onClick={handleSendMessage} />
@@ -99,29 +99,29 @@ function Home() {
                     <img id = "chatbot_img" src="src\assets\robot.png" alt="" />
                 </div>
 
-                <div className="cards">
-                        <div className="card">
+                <div className="cards1">
+                        <div className="card1">
                             <div>Study Material</div>
                             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident impedit repellendus rem aut maxime magni ad cupiditate porro dolores obcaecati.</p>
-                            <div className="btn">
+                            <div className="btn1">
                                  <NavLink to={"/studyMaterial"}><button>Click Here</button></NavLink>
                             </div>
                             
                         </div>
-                        <div className="card">
+                        <div className="card1">
                             <div>Mind Maps</div>
                             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident impedit repellendus rem aut maxime magni ad cupiditate porro dolores obcaecati.</p>
 
-                            <div className="btn">
+                            <div className="btn1">
                                 <NavLink to={"/mindmap"}><button>Click Here</button></NavLink>
                             </div>
                         </div>
 
-                        <div className="card">
+                        <div className="card1">
                             <div>To Do List</div>
                             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident impedit repellendus rem aut maxime magni ad cupiditate porro dolores obcaecati.</p>
 
-                            <div className="btn">
+                            <div className="btn1">
                             <NavLink to={"/todo"}><button>Click Here</button></NavLink>
                            </div>
                         </div>

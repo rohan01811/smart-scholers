@@ -1,6 +1,6 @@
 /* history.css */
 
-.history-container {
+.history-container2 {
     max-width: 900px;
     margin: 50px auto;
     padding: 20px;
@@ -10,14 +10,14 @@
     font-family: 'Segoe UI', sans-serif;
   }
   
-  .history-container h2 {
+  .history-container2 h2 {
     text-align: center;
     font-size: 2rem;
     margin-bottom: 20px;
     color: #2c3e50;
   }
   
-  .history-container button {
+  .history-container2 button {
     display: block;
     margin: 0 auto 30px;
     padding: 10px 20px;
@@ -30,17 +30,17 @@
     transition: background-color 0.3s ease;
   }
   
-  .history-container button:hover {
+  .history-container2 button:hover {
     background-color: #2980b9;
   }
   
-  .history-table {
+  .history-table2 {
     width: 100%;
     border-collapse: collapse;
   }
   
-  .history-table th,
-  .history-table td {
+  .history-table2 th,
+  .history-table2 td {
     padding: 12px 16px;
     border-bottom: 1px solid #e0e0e0;
     text-align: left;
@@ -48,24 +48,24 @@
 
   }
   
-  .history-table th {
+  .history-table2 th {
     background-color: #f1f1f1;
     color: #34495e;
     font-weight: 600;
   }
   
-  .history-table td.completed {
+  .history-table2 td.completed {
     color: #2ecc71;
     font-weight: bold;
   }
   
-  .history-table td.not-completed {
+  .history-table2 td.not-completed {
     color: #e74c3c;
     font-weight: bold;
   }
 
-  .history-table td:nth-child(4),
-.history-table th:nth-child(4) {
+  .history-table2 td:nth-child(4),
+.history-table2 th:nth-child(4) {
   white-space: nowrap;
   color: #7f8c8d;
   font-size: 0.95rem;

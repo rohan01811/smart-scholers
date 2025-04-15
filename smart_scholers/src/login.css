@@ -11,7 +11,7 @@
     /* overflow: hidden; */
   }
   
-  .login-container {
+  .login-container3 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,7 +23,7 @@
     font-family: Arial, sans-serif;
   }
   
-  .login-form-wrapper {
+  .login-form-wrapper3 {
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 4px 20px rgba(251, 250, 250, 0.15);
@@ -43,13 +43,13 @@
     font-size: 24px;
   }
   
-  .login-form {
+  .login-form3 {
     display: flex;
     flex-direction: column;
     width: 100%;
   }
   
-  .form-group {
+  .form-group3 {
     margin-bottom: 20px;
     width: 100%;
     color-scheme: none;
@@ -78,18 +78,18 @@
     box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
   }
   
-  .checkbox {
+  .checkbox3 {
     display: flex;    
     gap: 10px;
     justify-content: flex-start;
 
   }
   
-  .remember-me input {
+  .remember-me3 input {
     margin-right: 8px;
   }
   
-  .login-button {
+  .login-button3 {
     background-color: #4a90e2;
     color: white;
     border: none;
@@ -103,11 +103,11 @@
     transition: background-color 0.2s ease;
   }
   
-  .login-button:hover {
+  .login-button3:hover {
     background-color: #3a80d2;
   }
   
-  .error-message {
+  .error-message3 {
     background-color: #ffebee;
     color: #c62828;
     padding: 12px;
@@ -117,19 +117,19 @@
     text-align: center;
   }
   
-  .additional-options {
+  .additional-options3 {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
     font-size: 14px;
   }
   
-  .additional-options a {
+  .additional-options3 a {
     color: #4a90e2;
     text-decoration: none;
   }
   
-  .additional-options a:hover {
+  .additional-options3 a:hover {
     text-decoration: underline;
   }
   
@@ -143,7 +143,7 @@
       margin-bottom: 15px;
     }
     
-    .form-group {
+    .form-group3 {
       margin-bottom: 12px;
     }
   }
@@ -163,7 +163,7 @@
     color: red;
   } */
 
-  .img1 {
+  .img13 {
     position: absolute;
     top: 230px; /* adjust as needed */
     right: 60px; /* push to right */

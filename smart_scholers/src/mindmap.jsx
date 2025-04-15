@@ -27,15 +27,15 @@ function Mindmaps() {
     }
 
     return (
-        <div className="mindmaps">
-            <div className="title">
+        <div className="mindmaps4">
+            <div className="title4">
                 Generate MindMap of any pdf
             </div>
-            <div className="inputs">
+            <div className="inputs4">
                 <label htmlFor="pdf">Submit your PDF</label>
                 <input onChange={handleSubmit} id="pdf" type="file" />
             </div>
-            <div className="mindmap">
+            <div className="mindmap4">
                 <iframe src={mindmap} >
 
                 </iframe>

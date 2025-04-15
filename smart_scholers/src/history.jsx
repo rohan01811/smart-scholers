@@ -17,15 +17,15 @@ function History() {
     };
     
     return (
-        <div className="container">
+        <div className="container2">
                     <Navbar/>
-        <div className="history-container">
+        <div className="history-container2">
 
         <h2>Todo History</h2>
         <button onClick={fetchHistory}>Fetch History</button>
 
 
-      <table className="history-table">
+      <table className="history-table2">
   {/* Table headers */}
   <thead>
     <tr>
