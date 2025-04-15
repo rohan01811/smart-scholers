@@ -83,7 +83,7 @@
     padding: 4px;
 }
 
-.inputs_home{
+#inputs_home{
     display: flex;
     position: fixed;
     gap: 12px;

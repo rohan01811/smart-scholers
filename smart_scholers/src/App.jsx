@@ -88,7 +88,7 @@ function Home() {
                             
                           </div>))}
                     </div>
-                    <div className="inputs_home">
+                    <div id="inputs_home">
                         <img id = "upload" src="src\assets\add.png" alt="" />
                         <input id = "type_message" type="text" placeholder = "Enter your Message"  />
                         <img id = "send" src="src\assets\send.png" alt="" onClick={handleSendMessage} />
