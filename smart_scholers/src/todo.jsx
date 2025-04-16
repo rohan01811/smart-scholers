@@ -1,6 +1,5 @@
 import { useState,useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
 import './todo.css'
 
 import { NavLink } from 'react-router-dom';
@@ -10,7 +9,6 @@ import axios from 'axios';
 function TodoApp() {
   const [iptodo, setiptodo] = useState(" ")
   const [iptodos, setiptodos] = useState([])
-  const [completed, setcompleted] = useState([])
 
   useEffect(() => {
     const fetchTodos = async () => {
@@ -41,7 +39,7 @@ function TodoApp() {
   };
 
 
-  const saveToLS=(params)=>{
+  const saveToLS=()=>{
     localStorage.setItem("iptodos",JSON.stringify(iptodos));
   }
 
@@ -66,7 +64,8 @@ function TodoApp() {
       return item.id===id;
      })    
      console.log(index)
-     let newTodos=iptodos.filter(item=>{
+     let newTodos=
+     iptodos.filter(item=>{
       return item.id!==id
      });
     //  newTodos[index].isCompleted=!newTodos[index].isCompleted;
@@ -125,12 +124,12 @@ function TodoApp() {
 
   return (
     <>
-     <div className="navbar">
-            <div className="name">
+     <div className="navbar7">
+            <div className="name7">
             SMART SCHOLARS
             </div>
 
-            <div className="log_buttons">
+            <div className="log_buttons7">
                <NavLink to={"/"}><button>Home</button></NavLink>
                 <NavLink to={"/login"}><button>LogIn</button></NavLink>
 
@@ -141,39 +140,39 @@ function TodoApp() {
             
         </ div>
 
-      <div className="container">
+      <div className="container7">
        
      
-       <div className="add-todo">
+       <div className="add-todo7">
         
           <h1>Add TODO</h1>
          
 
-          <div className="ip">
-          <textarea onChange={handleChange} value={iptodo} type="text" className='textarea' />
-          <button className="addbtn" type="submit" onClick={handleAdd}>Save</button></div></div>
+          <div className="ip7">
+          <textarea onChange={handleChange} value={iptodo} type="text" className='textarea7' />
+          <button className="addbtn7" type="submit" onClick={handleAdd}>Save</button></div></div>
          
          
-          <div className="des">
+          <div className="des7">
             <h2>Your Todo</h2>
           
-        <div className="todos">
+        <div className="todos7">
           {iptodos.length===0 && <h3 className='no-todo'>No TODO to display</h3>}
           {iptodos.map(item=>{
-         return <div className="ans">
-         <div className="left-section">
+         return <div className="ans7">
+         <div className="left-section7">
            <input type="checkbox" value={item.isCompleted} onChange={handleCheckbox}  name={item.id} />
            <div className={item.isCompleted ? 'Work_done' : "not done"}>{item.iptodo}</div>
          </div>
        
-         <div className="btns">
-           <button className="addbtn" onClick={(e)=>handleEdit(e,item.id)}>Edit</button>
-           <button className="addbtn" onClick={(eve) => handleDelete(eve, item.id)}>Delete</button>
+         <div className="btns7">
+           <button className="addbtn7" onClick={(e)=>handleEdit(e,item.id)}>Edit</button>
+           <button className="addbtn7" onClick={(eve) => handleDelete(eve, item.id)}>Delete</button>
          </div>
 
         
        </div>})}
-       {iptodos.length!=0 &&<div className="btn1" onClick={clearAll}>Clear All</div>}
+       {iptodos.length!=0 &&<div className="btn7" onClick={clearAll}>Clear All</div>}
       
         </div>
         </div>
