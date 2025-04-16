@@ -4,59 +4,54 @@ import { NavLink } from "react-router-dom";
 import ReactMarkdown from 'react-markdown';
 
 function Home() {
-    const [chatbotWindow, setChatbotWindow] = useState(false);
-    const [messages, setMessages] = useState([{ sender: "bot", text: "Hi! How can I help you today?" }])
+    const [chatbotWindow,setChatbotWindow] = useState(false);
+    const [messages,setMessages] = useState([{sender : "bot" , text : "Hi! How can I help you today?"}])
 
-    useEffect(() => {
+    useEffect(()=>{
         const cbWindow = document.getElementById("chatbot_window")
 
-        if (chatbotWindow == true) {
+        if(chatbotWindow == true){
             cbWindow.style.display = "inline"
         }
-        else {
+        else{
             cbWindow.style.display = "none"
         }
-    }, [chatbotWindow])
+    },[chatbotWindow])
 
+    
 
-
-    function handleChatbotClick() {
-        if (chatbotWindow == false) {
+    function handleChatbotClick(){
+        if(chatbotWindow == false){
             setChatbotWindow(true)
-        } else {
+        }else{
             setChatbotWindow(false)
         }
     }
 
-    function handelChatbotHover() {
+    function handelChatbotHover(){
         const notify = document.getElementById("chatbot_notify")
-        if (chatbotWindow == false) {
+        if(chatbotWindow == false){
             notify.style.display = "inline"
 
         }
     }
 
-    function handelChatbotLeave() {
+    function handelChatbotLeave(){
         const notify = document.getElementById("chatbot_notify")
         notify.style.display = "none"
     }
 
-<<<<<<< HEAD
     async function handleSendMessage(){
-=======
-    async function handleSendMessage() {
-
->>>>>>> a63363457096bcaac4dbb0d391685126aa648809
 
         const message = document.getElementById("type_message").value
 
-        const newMessages1 = [...messages, { sender: "user", text: message }]
+        const newMessages1 = [...messages , {sender : "user" ,text :message}]
         setMessages(newMessages1)
 
         document.getElementById("type_message").value = ""
 
-        const response = await fetch("http://127.0.0.1:8000/chatbot", {
-            method: "POST",
+        const response = await fetch("http://127.0.0.1:8000/chatbot",{
+            method : "POST",
             headers: {
                 "Content-Type": "application/json",
             },
@@ -66,10 +61,10 @@ function Home() {
         })
 
         const answer = await response.json()
-        const newMessages2 = [...newMessages1, { sender: "bot", text: answer }]
+        const newMessages2 = [...newMessages1 , {sender : "bot" ,text :answer}]
         setMessages(newMessages2)
     }
-
+    
 
     return (
         <>
@@ -81,7 +76,6 @@ function Home() {
                     <img id="main_img" src="src\assets\homepage_background.png" alt="" />
                 </div>
 
-<<<<<<< HEAD
                 <div className="chatbot_window" id = "chatbot_window">
                     <div className="messages">
                         {messages.map((msg,index)=>(
@@ -103,46 +97,17 @@ function Home() {
                     <img id = "chatbot_notify" src="src\assets\helpful-tips.png" alt="" />
                     <img id = "chatbot_img" src="src\assets\robot.png" alt="" />
                 </div>
-=======
-                <div className="chatbot_window1" id="chatbot_window">
-                    <div className="messages1">
-                        {messages.map((msg, index) => (
-                            <div
-                                key={index}
-                                className={`${msg.sender === 'user' ? 'user' : 'bot'}`}
-                            >
-                                <span><ReactMarkdown>{msg.text}</ReactMarkdown></span>
->>>>>>> a63363457096bcaac4dbb0d391685126aa648809
 
-                            </div>))}
-                    </div>
-                    <div id="inputs_home">
-
-                        <div className="inputs_home1">
-                            <img id="upload" src="src\assets\add.png" alt="" />
-                            <input id="type_message" type="text" placeholder="Enter your Message" />
-                            <img id="send" src="src\assets\send.png" alt="" onClick={handleSendMessage} />
-                        </div>
-                    </div>
-                    <div onClick={handleChatbotClick} onMouseEnter={handelChatbotHover} onMouseLeave={handelChatbotLeave} className="chatbot">
-                        <img id="chatbot_notify" src="src\assets\helpful-tips.png" alt="" />
-                        <img id="chatbot_img" src="src\assets\robot.png" alt="" />
-                    </div>
-
-                    <div className="cards1">
+                <div className="cards1">
                         <div className="card1">
                             <div>Study Material</div>
                             <p>Unlock a wide range of NEET-focused resources curated by AI.
 Access notes, solved questions, and topic-wise breakdowns.
 Study smarter with structured content made just for you.</p>
                             <div className="btn1">
-<<<<<<< HEAD
                                  <NavLink to={"/studyMaterial"}><button className="btn11">Click Here</button></NavLink>
-=======
-                                <NavLink to={"/studyMaterial"}><button>Click Here</button></NavLink>
->>>>>>> a63363457096bcaac4dbb0d391685126aa648809
                             </div>
-
+                            
                         </div>
                         <div className="card1">
                             <div>Mind Maps</div>
@@ -162,21 +127,16 @@ Set priorities, track progress, and never miss a deadline.
 Build strong study habits stay consistently on track..</p>
 
                             <div className="btn1">
-<<<<<<< HEAD
                             <NavLink to={"/todo"}><button className="btn11">Click Here</button></NavLink>
                            </div>
-=======
-                                <NavLink to={"/todo"}><button>Click Here</button></NavLink>
-                            </div>
->>>>>>> a63363457096bcaac4dbb0d391685126aa648809
                         </div>
                     </div>
 
                 </div>
-                </div>
+            
 
+        </>
+    )
+}
 
-            </>
-            )
-        }
-            export default Home;
+export default Home;
