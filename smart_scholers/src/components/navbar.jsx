@@ -11,7 +11,7 @@ function Navbar() {
             </div>
 
             <div className="log_buttons">
-                <NavLink to={"/login"}><button>LogIn</button></NavLink>
+                <NavLink to={"/login"}><button>Login</button></NavLink>
               
                 <NavLink to={"/signup"}><button>Signup</button></NavLink>
             </div>

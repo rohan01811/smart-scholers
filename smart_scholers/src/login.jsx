@@ -57,7 +57,7 @@ function LoginPage() {
       />
 
       <div className="login-form-wrapper3">
-        <h2>Login</h2>
+        <h2 className='h2'>Login</h2>
 
         <form onSubmit={handleSubmit} className="login-form3">
           {error && <div className="error-message">{error}</div>}

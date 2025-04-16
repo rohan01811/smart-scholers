@@ -42,7 +42,6 @@ function Home() {
     }
 
     async function handleSendMessage(){
-        
 
         const message = document.getElementById("type_message").value
 
@@ -71,7 +70,7 @@ function Home() {
         <>
             <div className="headings1">
                 <div className="heading1">
-                    Crack NEET with AI Based Solutions🚀
+                    Crack NEET with AI Based Solutions By Edureka🚀
                 </div>
                 <div className="head_image1">
                     <img id="main_img" src="src\assets\homepage_background.png" alt="" />
@@ -94,7 +93,7 @@ function Home() {
                         <img id = "send" src="src\assets\send.png" alt="" onClick={handleSendMessage} />
                     </div>
                 </div>
-                <div onClick = {handleChatbotClick} onMouseEnter  = {handelChatbotHover} onMouseLeave={handelChatbotLeave} className="chatbot">
+                <div onClick = {handleChatbotClick} onMouseEnter  = {handelChatbotHover} onMouseLeave={handelChatbotLeave} className="chatbot1">
                     <img id = "chatbot_notify" src="src\assets\helpful-tips.png" alt="" />
                     <img id = "chatbot_img" src="src\assets\robot.png" alt="" />
                 </div>
