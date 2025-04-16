@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=D:\wad_project\backend\venv
+set VIRTUAL_ENV=D:\WAD_project\smart-scholers2\smart-scholers\backend\venv
 
 if not defined PROMPT set PROMPT=$P$G
 

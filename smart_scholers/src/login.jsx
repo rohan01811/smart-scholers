@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import "./login.css";
-import Navbar1 from "./components/navbar_login";
 import { NavLink, useNavigate } from 'react-router-dom';
+import Navbar2 from './components/Navbar2';
 // import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // import LoginPage from './login';
 // import App from './App';
@@ -49,6 +49,8 @@ function LoginPage() {
   };
 
   return (
+    <div className="con11">
+      <Navbar2/>
     <div className="login-container3">
       <img
         src="https://static.uacdn.net/production/_next/static/images/home-illustration.svg?q=75&auto=format%2Ccompress&w=1200"
@@ -60,7 +62,7 @@ function LoginPage() {
         <h2 className='h2'>Login</h2>
 
         <form onSubmit={handleSubmit} className="login-form3">
-          {error && <div className="error-message">{error}</div>}
+          {error && <div className="error-message3">{error}</div>}
 
           <div className="form-group3">
             <label htmlFor="email">Email</label>
@@ -101,7 +103,7 @@ function LoginPage() {
       </div>
     </div>
 
-    
+   </div> 
   );
 }
 

@@ -70,14 +70,14 @@ function Home() {
         <>
             <div className="headings1">
                 <div className="heading1">
-                    Crack NEET with AI Based Solutions By Edureka🚀
+                    Crack NEET with AI Based Solutions 🚀
                 </div>
                 <div className="head_image1">
                     <img id="main_img" src="src\assets\homepage_background.png" alt="" />
                 </div>
 
-                <div className="chatbot_window1" id = "chatbot_window">
-                    <div className="messages1">
+                <div className="chatbot_window" id = "chatbot_window">
+                    <div className="messages">
                         {messages.map((msg,index)=>(
                             <div
                             key={index}
@@ -87,13 +87,13 @@ function Home() {
                             
                           </div>))}
                     </div>
-                    <div className="inputs_home1">
+                    <div className="inputs_home">
                         <img id = "upload" src="src\assets\add.png" alt="" />
-                        <input id = "type_message" type="text" placeholder = "Enter your Message"  />
+                        <input id = "type_message" type="text" placeholder = "Enter your Message" className="ip_home" />
                         <img id = "send" src="src\assets\send.png" alt="" onClick={handleSendMessage} />
                     </div>
                 </div>
-                <div onClick = {handleChatbotClick} onMouseEnter  = {handelChatbotHover} onMouseLeave={handelChatbotLeave} className="chatbot1">
+                <div onClick = {handleChatbotClick} onMouseEnter  = {handelChatbotHover} onMouseLeave={handelChatbotLeave} className="chatbot">
                     <img id = "chatbot_notify" src="src\assets\helpful-tips.png" alt="" />
                     <img id = "chatbot_img" src="src\assets\robot.png" alt="" />
                 </div>
@@ -101,27 +101,33 @@ function Home() {
                 <div className="cards1">
                         <div className="card1">
                             <div>Study Material</div>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident impedit repellendus rem aut maxime magni ad cupiditate porro dolores obcaecati.</p>
+                            <p>Unlock a wide range of NEET-focused resources curated by AI.
+Access notes, solved questions, and topic-wise breakdowns.
+Study smarter with structured content made just for you.</p>
                             <div className="btn1">
-                                 <NavLink to={"/studyMaterial"}><button>Click Here</button></NavLink>
+                                 <NavLink to={"/studyMaterial"}><button className="btn11">Click Here</button></NavLink>
                             </div>
                             
                         </div>
                         <div className="card1">
                             <div>Mind Maps</div>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident impedit repellendus rem aut maxime magni ad cupiditate porro dolores obcaecati.</p>
+                            <p>Transform any PDF into a clear, visual mind map in seconds.
+Perfect for quick revision and better concept understanding.
+Simplify your learning ,boost memory retention effortlessly.</p>
 
                             <div className="btn1">
-                                <NavLink to={"/mindmap"}><button>Click Here</button></NavLink>
+                                <NavLink to={"/mindmap"}><button className="btn11">Click Here</button></NavLink>
                             </div>
                         </div>
 
                         <div className="card1">
                             <div>To Do List</div>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident impedit repellendus rem aut maxime magni ad cupiditate porro dolores obcaecati.</p>
+                            <p>Organize your daily tasks and study sessions in one place.
+Set priorities, track progress, and never miss a deadline.
+Build strong study habits stay consistently on track..</p>
 
                             <div className="btn1">
-                            <NavLink to={"/todo"}><button>Click Here</button></NavLink>
+                            <NavLink to={"/todo"}><button className="btn11">Click Here</button></NavLink>
                            </div>
                         </div>
                     </div>

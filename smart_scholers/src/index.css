@@ -1,4 +1,4 @@
-:root {
+/* /* :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -68,22 +68,22 @@ button:focus-visible {
   }
 }
 
-
+/* 
 /* For Webkit browsers (Chrome, Edge, Safari) */
-::-webkit-scrollbar {
-  width: 8px; /* Width of the scrollbar */
+/* ::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar 
 }
 
 ::-webkit-scrollbar-track {
-  background: #f0f0f0; /* Track background */
+  background: #f0f0f0; /* Track background 
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background:#ecf1f7; /* Scroll thumb color */
+  background:#ecf1f7; /* Scroll thumb color 
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #b1c2d4; /* Darker shade on hover */
-}
+  background: #b1c2d4; /* Darker shade on hover 
+} */  

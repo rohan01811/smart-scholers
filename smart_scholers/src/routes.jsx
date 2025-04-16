@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router,Routes, Route } from "react-router-dom"
 import App from "./App";
 import Navbar from "./components/navbar";
+import Navbar1 from "./components/navbar_login";
 import LoginPage from "./login";
 import StudyMaterial from "./studyMaterial";
 
@@ -24,6 +25,7 @@ function RouterPage(){
                 <Route path = "/studyMaterial" element = {<> <StudyMaterial/></>} />
                 <Route path = "/todo" element = {<><TodoApp/></>} />
                 <Route path = "/history" element = {<><History/></>} />
+                
 
 
             </Routes>

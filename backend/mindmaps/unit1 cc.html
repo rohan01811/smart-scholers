@@ -1,0 +1,155 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 1000px;
+                 background-color: #FCFAF3;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#00ffff", "id": "Physics", "label": "Physics", "shape": "box", "size": 30}, {"color": "#ffcc00", "id": "Mechanics", "label": "Mechanics", "shape": "box", "size": 30}, {"color": "#ffcc00", "id": "Thermodynamics", "label": "Thermodynamics", "shape": "box", "size": 30}, {"color": "#ffcc00", "id": "Electromagnetism", "label": "Electromagnetism", "shape": "box", "size": 30}, {"color": "#ffcc00", "id": "Optics", "label": "Optics", "shape": "box", "size": 30}, {"color": "#ffcc00", "id": "Modern Physics", "label": "Modern Physics", "shape": "box", "size": 30}, {"color": "#ffcc00", "id": "Kinematics", "label": "Kinematics", "shape": "box", "size": 30}, {"color": "#ffcc00", "id": "Newton\u0027s Laws", "label": "Newton\u0027s Laws", "shape": "box", "size": 30}, {"color": "#ffcc00", "id": "Work-Energy Theorem", "label": "Work-Energy Theorem", "shape": "box", "size": 30}, {"color": "#ffcc00", "id": "Rotational Motion", "label": "Rotational Motion", "shape": "box", "size": 30}, {"color": "#ffcc00", "id": "Equations of Motion", "label": "Equations of Motion", "shape": "box", "size": 30}, {"color": "#ffcc00", "id": "Projectile Motion", "label": "Projectile Motion", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "Relative Motion", "label": "Relative Motion", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "s = ut + 1/2 at\u00b2", "label": "s = ut + 1/2 at\u00b2", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "v = u + at", "label": "v = u + at", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "v\u00b2 = u\u00b2 + 2as", "label": "v\u00b2 = u\u00b2 + 2as", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "Range = (u\u00b2 sin 2\u03b8)/g", "label": "Range = (u\u00b2 sin 2\u03b8)/g", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "Max Height = (u\u00b2 sin\u00b2 \u03b8)/(2g)", "label": "Max Height = (u\u00b2 sin\u00b2 \u03b8)/(2g)", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "F = ma", "label": "F = ma", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "Action-Reaction Pair", "label": "Action-Reaction Pair", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "W = \u0394K.E.", "label": "W = \u0394K.E.", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "K.E. = 1/2 mv\u00b2", "label": "K.E. = 1/2 mv\u00b2", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "Torque = r \u00d7 F", "label": "Torque = r \u00d7 F", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "Moment of Inertia", "label": "Moment of Inertia", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "Angular Momentum", "label": "Angular Momentum", "shape": "box", "size": 30}, {"color": "#ffcc00", "id": "Laws of Thermodynamics", "label": "Laws of Thermodynamics", "shape": "box", "size": 30}, {"color": "#ffcc00", "id": "Heat Transfer", "label": "Heat Transfer", "shape": "box", "size": 30}, {"color": "#ffcc00", "id": "Thermodynamic Processes", "label": "Thermodynamic Processes", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "Zeroth Law", "label": "Zeroth Law", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "First Law (\u0394U = Q - W)", "label": "First Law (\u0394U = Q - W)", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "Second Law (Entropy Increase)", "label": "Second Law (Entropy Increase)", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "Conduction", "label": "Conduction", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "Convection", "label": "Convection", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "Radiation", "label": "Radiation", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "Isothermal", "label": "Isothermal", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "Adiabatic", "label": "Adiabatic", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "Isochoric", "label": "Isochoric", "shape": "box", "size": 30}, {"color": "#ffcc00", "id": "Coulomb\u0027s Law", "label": "Coulomb\u0027s Law", "shape": "box", "size": 30}, {"color": "#ffcc00", "id": "Electric Fields", "label": "Electric Fields", "shape": "box", "size": 30}, {"color": "#ffcc00", "id": "Magnetic Fields", "label": "Magnetic Fields", "shape": "box", "size": 30}, {"color": "#ffcc00", "id": "Electromagnetic Induction", "label": "Electromagnetic Induction", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "F = k(q\u2081q\u2082)/r\u00b2", "label": "F = k(q\u2081q\u2082)/r\u00b2", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "E = F/q", "label": "E = F/q", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "Field due to Point Charge", "label": "Field due to Point Charge", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "B = \u03bc\u2080I/(2\u03c0r)", "label": "B = \u03bc\u2080I/(2\u03c0r)", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "Right-Hand Rule", "label": "Right-Hand Rule", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "Faraday\u0027s Law (\u03b5 = -d\u03a6/dt)", "label": "Faraday\u0027s Law (\u03b5 = -d\u03a6/dt)", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "Lenz\u0027s Law", "label": "Lenz\u0027s Law", "shape": "box", "size": 30}, {"color": "#ffcc00", "id": "Reflection", "label": "Reflection", "shape": "box", "size": 30}, {"color": "#ffcc00", "id": "Refraction", "label": "Refraction", "shape": "box", "size": 30}, {"color": "#ffcc00", "id": "Optical Instruments", "label": "Optical Instruments", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "Law of Reflection", "label": "Law of Reflection", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "Plane Mirror", "label": "Plane Mirror", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "Spherical Mirror", "label": "Spherical Mirror", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "Snell\u0027s Law (n\u2081sin\u03b8\u2081 = n\u2082sin\u03b8\u2082)", "label": "Snell\u0027s Law (n\u2081sin\u03b8\u2081 = n\u2082sin\u03b8\u2082)", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "Total Internal Reflection", "label": "Total Internal Reflection", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "Lens Formula (1/f = 1/v - 1/u)", "label": "Lens Formula (1/f = 1/v - 1/u)", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "Magnification", "label": "Magnification", "shape": "box", "size": 30}, {"color": "#ffcc00", "id": "Photoelectric Effect", "label": "Photoelectric Effect", "shape": "box", "size": 30}, {"color": "#ffcc00", "id": "Atomic Models", "label": "Atomic Models", "shape": "box", "size": 30}, {"color": "#ffcc00", "id": "Nuclear Physics", "label": "Nuclear Physics", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "E = hf", "label": "E = hf", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "Threshold Frequency", "label": "Threshold Frequency", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "Bohr Model", "label": "Bohr Model", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "Quantum Mechanical Model", "label": "Quantum Mechanical Model", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "Radioactivity", "label": "Radioactivity", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "Half-Life", "label": "Half-Life", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "Nuclear Fission and Fusion", "label": "Nuclear Fission and Fusion", "shape": "box", "size": 30}]);
+                  edges = new vis.DataSet([{"arrows": "to", "from": "Physics", "to": "Mechanics"}, {"arrows": "to", "from": "Physics", "to": "Thermodynamics"}, {"arrows": "to", "from": "Physics", "to": "Electromagnetism"}, {"arrows": "to", "from": "Physics", "to": "Optics"}, {"arrows": "to", "from": "Physics", "to": "Modern Physics"}, {"arrows": "to", "from": "Mechanics", "to": "Kinematics"}, {"arrows": "to", "from": "Mechanics", "to": "Newton\u0027s Laws"}, {"arrows": "to", "from": "Mechanics", "to": "Work-Energy Theorem"}, {"arrows": "to", "from": "Mechanics", "to": "Rotational Motion"}, {"arrows": "to", "from": "Thermodynamics", "to": "Laws of Thermodynamics"}, {"arrows": "to", "from": "Thermodynamics", "to": "Heat Transfer"}, {"arrows": "to", "from": "Thermodynamics", "to": "Thermodynamic Processes"}, {"arrows": "to", "from": "Electromagnetism", "to": "Coulomb\u0027s Law"}, {"arrows": "to", "from": "Electromagnetism", "to": "Electric Fields"}, {"arrows": "to", "from": "Electromagnetism", "to": "Magnetic Fields"}, {"arrows": "to", "from": "Electromagnetism", "to": "Electromagnetic Induction"}, {"arrows": "to", "from": "Optics", "to": "Reflection"}, {"arrows": "to", "from": "Optics", "to": "Refraction"}, {"arrows": "to", "from": "Optics", "to": "Optical Instruments"}, {"arrows": "to", "from": "Modern Physics", "to": "Photoelectric Effect"}, {"arrows": "to", "from": "Modern Physics", "to": "Atomic Models"}, {"arrows": "to", "from": "Modern Physics", "to": "Nuclear Physics"}, {"arrows": "to", "from": "Kinematics", "to": "Equations of Motion"}, {"arrows": "to", "from": "Kinematics", "to": "Projectile Motion"}, {"arrows": "to", "from": "Kinematics", "to": "Relative Motion"}, {"arrows": "to", "from": "Newton\u0027s Laws", "to": "F = ma"}, {"arrows": "to", "from": "Newton\u0027s Laws", "to": "Action-Reaction Pair"}, {"arrows": "to", "from": "Work-Energy Theorem", "to": "W = \u0394K.E."}, {"arrows": "to", "from": "Work-Energy Theorem", "to": "K.E. = 1/2 mv\u00b2"}, {"arrows": "to", "from": "Rotational Motion", "to": "Torque = r \u00d7 F"}, {"arrows": "to", "from": "Rotational Motion", "to": "Moment of Inertia"}, {"arrows": "to", "from": "Rotational Motion", "to": "Angular Momentum"}, {"arrows": "to", "from": "Equations of Motion", "to": "s = ut + 1/2 at\u00b2"}, {"arrows": "to", "from": "Equations of Motion", "to": "v = u + at"}, {"arrows": "to", "from": "Equations of Motion", "to": "v\u00b2 = u\u00b2 + 2as"}, {"arrows": "to", "from": "Projectile Motion", "to": "Range = (u\u00b2 sin 2\u03b8)/g"}, {"arrows": "to", "from": "Projectile Motion", "to": "Max Height = (u\u00b2 sin\u00b2 \u03b8)/(2g)"}, {"arrows": "to", "from": "Laws of Thermodynamics", "to": "Zeroth Law"}, {"arrows": "to", "from": "Laws of Thermodynamics", "to": "First Law (\u0394U = Q - W)"}, {"arrows": "to", "from": "Laws of Thermodynamics", "to": "Second Law (Entropy Increase)"}, {"arrows": "to", "from": "Heat Transfer", "to": "Conduction"}, {"arrows": "to", "from": "Heat Transfer", "to": "Convection"}, {"arrows": "to", "from": "Heat Transfer", "to": "Radiation"}, {"arrows": "to", "from": "Thermodynamic Processes", "to": "Isothermal"}, {"arrows": "to", "from": "Thermodynamic Processes", "to": "Adiabatic"}, {"arrows": "to", "from": "Thermodynamic Processes", "to": "Isochoric"}, {"arrows": "to", "from": "Coulomb\u0027s Law", "to": "F = k(q\u2081q\u2082)/r\u00b2"}, {"arrows": "to", "from": "Electric Fields", "to": "E = F/q"}, {"arrows": "to", "from": "Electric Fields", "to": "Field due to Point Charge"}, {"arrows": "to", "from": "Magnetic Fields", "to": "B = \u03bc\u2080I/(2\u03c0r)"}, {"arrows": "to", "from": "Magnetic Fields", "to": "Right-Hand Rule"}, {"arrows": "to", "from": "Electromagnetic Induction", "to": "Faraday\u0027s Law (\u03b5 = -d\u03a6/dt)"}, {"arrows": "to", "from": "Electromagnetic Induction", "to": "Lenz\u0027s Law"}, {"arrows": "to", "from": "Reflection", "to": "Law of Reflection"}, {"arrows": "to", "from": "Reflection", "to": "Plane Mirror"}, {"arrows": "to", "from": "Reflection", "to": "Spherical Mirror"}, {"arrows": "to", "from": "Refraction", "to": "Snell\u0027s Law (n\u2081sin\u03b8\u2081 = n\u2082sin\u03b8\u2082)"}, {"arrows": "to", "from": "Refraction", "to": "Total Internal Reflection"}, {"arrows": "to", "from": "Optical Instruments", "to": "Lens Formula (1/f = 1/v - 1/u)"}, {"arrows": "to", "from": "Optical Instruments", "to": "Magnification"}, {"arrows": "to", "from": "Photoelectric Effect", "to": "E = hf"}, {"arrows": "to", "from": "Photoelectric Effect", "to": "Threshold Frequency"}, {"arrows": "to", "from": "Atomic Models", "to": "Bohr Model"}, {"arrows": "to", "from": "Atomic Models", "to": "Quantum Mechanical Model"}, {"arrows": "to", "from": "Nuclear Physics", "to": "Radioactivity"}, {"arrows": "to", "from": "Nuclear Physics", "to": "Half-Life"}, {"arrows": "to", "from": "Nuclear Physics", "to": "Nuclear Fission and Fusion"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

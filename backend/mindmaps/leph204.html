@@ -1,0 +1,155 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 1000px;
+                 background-color: #FCFAF3;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#00ffff", "id": "Atoms", "label": "Atoms", "shape": "box", "size": 30}, {"color": "#ffcc00", "id": "Introduction", "label": "Introduction", "shape": "box", "size": 30}, {"color": "#ffcc00", "id": "Rutherford\u0027s Nuclear Model", "label": "Rutherford\u0027s Nuclear Model", "shape": "box", "size": 30}, {"color": "#ffcc00", "id": "Bohr\u0027s Model of Hydrogen Atom", "label": "Bohr\u0027s Model of Hydrogen Atom", "shape": "box", "size": 30}, {"color": "#ffcc00", "id": "Atomic Spectra", "label": "Atomic Spectra", "shape": "box", "size": 30}, {"color": "#ffcc00", "id": "Key Formulas", "label": "Key Formulas", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "Atom is electrically neutral: equal positive and negative charges.", "label": "Atom is electrically neutral: equal positive and negative charges.", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "Thomson\u0027s Model: Spherical cloud of positive charges with electrons embedded.", "label": "Thomson\u0027s Model: Spherical cloud of positive charges with electrons embedded.", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "Rutherford\u0027s Model: Positive charge and mass concentrated in the nucleus; electrons revolve around it.", "label": "Rutherford\u0027s Model: Positive charge and mass concentrated in the nucleus; electrons revolve around it.", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "Conducted by Geiger and Marsden (1911).", "label": "Conducted by Geiger and Marsden (1911).", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "Alpha-particle scattering experiment.", "label": "Alpha-particle scattering experiment.", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "Nucleus size: 10^-15 m to 10^-14 m.", "label": "Nucleus size: 10^-15 m to 10^-14 m.", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "Most of the atom is empty space.", "label": "Most of the atom is empty space.", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "Scattering data supports the nuclear model.", "label": "Scattering data supports the nuclear model.", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "Three Postulates of Bohr:", "label": "Three Postulates of Bohr:", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "1. Stable orbits without energy emission.", "label": "1. Stable orbits without energy emission.", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "2. Angular momentum quantization: L = n(h/2\u03c0).", "label": "2. Angular momentum quantization: L = n(h/2\u03c0).", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "3. Energy transitions emit photons: E_photon = E_initial - E_final.", "label": "3. Energy transitions emit photons: E_photon = E_initial - E_final.", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "Model limitations: Applicable only to hydrogenic atoms; cannot explain relative intensities.", "label": "Model limitations: Applicable only to hydrogenic atoms; cannot explain relative intensities.", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "Characteristics of atomic spectra.", "label": "Characteristics of atomic spectra.", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "Emission Line Spectrum: discrete wavelengths.", "label": "Emission Line Spectrum: discrete wavelengths.", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "Absorption Spectrum: dark lines in continuous spectrum.", "label": "Absorption Spectrum: dark lines in continuous spectrum.", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "Relation between energy levels and emitted frequencies.", "label": "Relation between energy levels and emitted frequencies.", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "Electrostatic Force: F_e = (Z * e^2)/(4\u03c0\u03b5_0 * r^2)", "label": "Electrostatic Force: F_e = (Z * e^2)/(4\u03c0\u03b5_0 * r^2)", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "Total Energy: E = K + U = - (K * e^2)/(2r)", "label": "Total Energy: E = K + U = - (K * e^2)/(2r)", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "Kinetic Energy: K = (1/2)mv^2", "label": "Kinetic Energy: K = (1/2)mv^2", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "Potential Energy: U = - (K * e^2)/r", "label": "Potential Energy: U = - (K * e^2)/r", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "Bohr\u0027s Energy Levels: E_n = - (13.6 eV)/n^2", "label": "Bohr\u0027s Energy Levels: E_n = - (13.6 eV)/n^2", "shape": "box", "size": 30}, {"color": "#00ff66", "id": "Photon Energy: E_photon = h\u03bd = E_initial - E_final", "label": "Photon Energy: E_photon = h\u03bd = E_initial - E_final", "shape": "box", "size": 30}]);
+                  edges = new vis.DataSet([{"arrows": "to", "from": "Atoms", "to": "Introduction"}, {"arrows": "to", "from": "Atoms", "to": "Rutherford\u0027s Nuclear Model"}, {"arrows": "to", "from": "Atoms", "to": "Bohr\u0027s Model of Hydrogen Atom"}, {"arrows": "to", "from": "Atoms", "to": "Atomic Spectra"}, {"arrows": "to", "from": "Atoms", "to": "Key Formulas"}, {"arrows": "to", "from": "Introduction", "to": "Atom is electrically neutral: equal positive and negative charges."}, {"arrows": "to", "from": "Introduction", "to": "Thomson\u0027s Model: Spherical cloud of positive charges with electrons embedded."}, {"arrows": "to", "from": "Introduction", "to": "Rutherford\u0027s Model: Positive charge and mass concentrated in the nucleus; electrons revolve around it."}, {"arrows": "to", "from": "Rutherford\u0027s Nuclear Model", "to": "Conducted by Geiger and Marsden (1911)."}, {"arrows": "to", "from": "Rutherford\u0027s Nuclear Model", "to": "Alpha-particle scattering experiment."}, {"arrows": "to", "from": "Rutherford\u0027s Nuclear Model", "to": "Nucleus size: 10^-15 m to 10^-14 m."}, {"arrows": "to", "from": "Rutherford\u0027s Nuclear Model", "to": "Most of the atom is empty space."}, {"arrows": "to", "from": "Rutherford\u0027s Nuclear Model", "to": "Scattering data supports the nuclear model."}, {"arrows": "to", "from": "Bohr\u0027s Model of Hydrogen Atom", "to": "Three Postulates of Bohr:"}, {"arrows": "to", "from": "Bohr\u0027s Model of Hydrogen Atom", "to": "1. Stable orbits without energy emission."}, {"arrows": "to", "from": "Bohr\u0027s Model of Hydrogen Atom", "to": "2. Angular momentum quantization: L = n(h/2\u03c0)."}, {"arrows": "to", "from": "Bohr\u0027s Model of Hydrogen Atom", "to": "3. Energy transitions emit photons: E_photon = E_initial - E_final."}, {"arrows": "to", "from": "Bohr\u0027s Model of Hydrogen Atom", "to": "Model limitations: Applicable only to hydrogenic atoms; cannot explain relative intensities."}, {"arrows": "to", "from": "Atomic Spectra", "to": "Characteristics of atomic spectra."}, {"arrows": "to", "from": "Atomic Spectra", "to": "Emission Line Spectrum: discrete wavelengths."}, {"arrows": "to", "from": "Atomic Spectra", "to": "Absorption Spectrum: dark lines in continuous spectrum."}, {"arrows": "to", "from": "Atomic Spectra", "to": "Relation between energy levels and emitted frequencies."}, {"arrows": "to", "from": "Key Formulas", "to": "Electrostatic Force: F_e = (Z * e^2)/(4\u03c0\u03b5_0 * r^2)"}, {"arrows": "to", "from": "Key Formulas", "to": "Total Energy: E = K + U = - (K * e^2)/(2r)"}, {"arrows": "to", "from": "Key Formulas", "to": "Kinetic Energy: K = (1/2)mv^2"}, {"arrows": "to", "from": "Key Formulas", "to": "Potential Energy: U = - (K * e^2)/r"}, {"arrows": "to", "from": "Key Formulas", "to": "Bohr\u0027s Energy Levels: E_n = - (13.6 eV)/n^2"}, {"arrows": "to", "from": "Key Formulas", "to": "Photon Energy: E_photon = h\u03bd = E_initial - E_final"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

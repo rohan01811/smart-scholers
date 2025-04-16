@@ -36,10 +36,32 @@ h2{
       gap: 15px;
 }
 
+.log_buttons7{
+  gap: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
 .addbtn7{
   background-color: violet;
   cursor: pointer;
   color: white;
+  width: 56px;
+    margin-bottom: 12px;
+    position: relative;
+    left: 42%;
+}
+.addbtn77{
+  background-color: violet;
+  cursor: pointer;
+  color: white;
+  width: 56px;
+  height: 29px;
+  border-radius: 20px;
 }
 
 .add-todo7{
@@ -130,6 +152,10 @@ h2{
 .not\ done {
   color: black;
 }
+.no-todo{
+  margin-top: 25px;
+  margin-left: 135px;
+}
 
 .btn7{
   background-color: violet;
@@ -140,4 +166,12 @@ h2{
   position: relative;
   left: 50%;
   cursor: pointer;
+}
+
+.navbar7{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f2e9c7;
+  padding: 10px 20px;
 }

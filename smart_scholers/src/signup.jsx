@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, NavLink, } from 'react-router-dom';
 import './signup.css';
 import signupImage from './assets/download.png';
+import Navbar2 from './components/Navbar2';
 
 
 function SignUpPage() {
@@ -59,6 +60,8 @@ function SignUpPage() {
   
 
   return (
+    <div className="container14">
+      <Navbar2/>
     <div className="signup-container5">
       <img src={signupImage} alt="Signup illustration" className="signup-img5" />
       <div className="signup-card5">
@@ -73,7 +76,7 @@ function SignUpPage() {
                 placeholder="Name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="input"
+                className="normal-input5"
               />
             </div>
           </div>
@@ -142,7 +145,7 @@ function SignUpPage() {
           </button>
         </div>
       </div>
-    </div>
+    </div></div>
   );
 }
 

@@ -32,7 +32,31 @@ router.post('/',async(req,res)=>{
                 from: 'rohandeshmukh1118@gmail.com',
                 to:req.body.email,
                 subject: 'Welcome to Smart-Scholars!',
-                text: `Hi ${name},\n\nYou've successfully signed up on Smart-Scholars! 🎉\n\nWe're excited to have you on board. This platform helps students manage their work effectively. Log in and start exploring now!\n\nCheers,\nTeam Smart-Scholars`
+                text: `Hi ${name},
+
+Welcome aboard! 🎓
+We're thrilled to have you as a part of the Smart-Scholer family – where smart learning meets success.
+
+You’ve just taken the first step toward transforming your academic journey. With Smart-Scholer, you'll get access to personalized study resources, real-time progress tracking, expert-curated content, and tools designed to help you study smarter, not harder.
+
+Here’s what you can expect:
+
+📚 Tailored learning materials
+
+📈 Progress reports and smart insights
+
+🧠 Engaging quizzes and challenges
+
+🌟 A supportive community of learners
+
+Your dashboard is ready – jump in and start exploring your new learning hub!
+
+If you have any questions or need help getting started, we’re always here for you.
+Let’s make this an amazing journey together. 🚀
+
+Warm regards,
+Team Smart-Scholer
+Learn Smart. Achieve More.`
               };
               
               transporter.sendMail(mailOptions, (error, info) => {

@@ -126,15 +126,15 @@ function TodoApp() {
     <>
      <div className="navbar7">
             <div className="name7">
-            SMART SCHOLARS
+            <h1>SMART SCHOLARS</h1>
             </div>
 
             <div className="log_buttons7">
-               <NavLink to={"/"}><button>Home</button></NavLink>
-                <NavLink to={"/login"}><button>LogIn</button></NavLink>
+               <NavLink to={"/"}><button className='btn12'>Home</button></NavLink>
+                <NavLink to={"/login"}><button className='btn12'>Login</button></NavLink>
 
-                <NavLink to={"/signup"}><button>Signup</button></NavLink>
-                  <NavLink to={"/history"}><button>History</button></NavLink>
+                <NavLink to={"/signup"}><button className='btn12'>Signup</button></NavLink>
+                  <NavLink to={"/history"}><button className='btn12'>History</button></NavLink>
                
             </div>
             
@@ -166,8 +166,8 @@ function TodoApp() {
          </div>
        
          <div className="btns7">
-           <button className="addbtn7" onClick={(e)=>handleEdit(e,item.id)}>Edit</button>
-           <button className="addbtn7" onClick={(eve) => handleDelete(eve, item.id)}>Delete</button>
+           <button className="addbtn77" onClick={(e)=>handleEdit(e,item.id)}>Edit</button>
+           <button className="addbtn77" onClick={(eve) => handleDelete(eve, item.id)}>Delete</button>
          </div>
 
         

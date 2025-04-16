@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./mindmap.css"
+import Navbar2 from "./components/Navbar2";
 
 
 function Mindmaps() {
@@ -26,8 +27,9 @@ function Mindmaps() {
 
     }
 
-    return (
+    return (<div className="conn44"><Navbar2/>
         <div className="mindmaps4">
+            
             <div className="title4">
                 Generate MindMap of any pdf
             </div>
@@ -40,7 +42,7 @@ function Mindmaps() {
 
                 </iframe>
             </div>
-
+</div>
 
         </div>
     )

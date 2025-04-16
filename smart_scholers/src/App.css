@@ -41,7 +41,7 @@
 
 }
 
-.chatbot_window1{
+.chatbot_window{
     height: 486px;
     width: 358px;
     position: fixed;
@@ -63,19 +63,24 @@
     background-color: #ffffff;
     border: none;
     color: gray;
-
+    height: 30px;
+    width: 260px;
 }
-.user1{
+.user{
     color: #002752;
     padding: 5px;
 }
 
-.bot1{
+.bot{
     color: #002752;
     padding: 5px;
+    width: fit-content;
+    display: flex;
+    justify-content: end;
+    align-items: center; 
 }
 
-.messages1{
+.messages{
     display: flex;
     flex-direction: column;
     overflow-y:scroll;
@@ -83,7 +88,7 @@
     padding: 4px;
 }
 
-.inputs_home1{
+.inputs_home{
     display: flex;
     position: fixed;
     gap: 12px;
@@ -94,21 +99,15 @@
     width: 318px;
 }
 
-.bot1{
-    width: fit-content;
-    display: flex;
-    justify-content: end;
-    align-items: center;  
-    
-}
 
-.user1{
+
+.user{
     display: flex;
     justify-content: end;
     align-items: center;   
 }
 
-.user1 span{
+.user span{
     padding: 5px;;
     border-radius: 6px;
     max-width: 280px;
@@ -118,7 +117,7 @@
 
    
 }
-.bot1 span{
+.bot span{
     background-color: #fdf4f4;
 
     padding: 5px;
@@ -174,7 +173,9 @@ p{
 .btn1{
     display: flex;
     justify-content: center;
-    padding-top: 30px;
+    padding-top: 50px;
+    
+
 }
 
 .card1:hover{
@@ -185,13 +186,32 @@ p{
 }
 
 
-.messages1::-webkit-scrollbar {
+.messages::-webkit-scrollbar {
     width: 6px;
 }
-.messages1::-webkit-scrollbar-track {
+.messages::-webkit-scrollbar-track {
     background: transparent;
 }
-.messages1::-webkit-scrollbar-thumb {
+.messages::-webkit-scrollbar-thumb {
     background-color: rgba(0, 0, 0, 0.1);
     border-radius: 10px;
+}
+.btn11{
+    background-color: violet;
+    height: 30px;
+    width: 90px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.btn11:hover{
+    background-color: #faae17;
+    color: white;
+}
+.btn12{
+    background-color: violet;
+    height: 30px;
+    width: 90px;
+    border-radius: 20px;
+    cursor: pointer;
 }

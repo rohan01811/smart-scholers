@@ -1,6 +1,7 @@
 import React from "react";
 import "./studyMaterial.css"
 import Navbar from "./components/navbar";
+import Navbar2 from "./components/Navbar2";
 
 function StudyMaterial(){
 
@@ -89,9 +90,10 @@ function StudyMaterial(){
         </nav>
     </header>
      */}
+     <div className="connn66"> <Navbar2/>
     <section className="container6">
-        <Navbar/>
-        <h2>Study Material for JEE & NEET</h2>
+   
+    <h2>Study Material for JEE & NEET</h2>
         <div className="card66">
         
         <div className="controls6">
@@ -188,7 +190,7 @@ function StudyMaterial(){
         </div>
         </div>
     </section>
-    
+    </div>
         </>
 
 

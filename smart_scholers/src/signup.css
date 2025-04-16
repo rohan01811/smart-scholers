@@ -37,6 +37,7 @@
   .name-input-container5,
   .input-container5 {
     position: relative;
+
   }
   
   .input5,
@@ -44,7 +45,7 @@
     width: 100%;
     padding: 12px;
     border-radius: 4px;
-    border: 1px solid #d1d5db;
+    border: 1px solid #b7c7de;
     outline: none;
     background-color: white;
   }
